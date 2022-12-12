@@ -5,14 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="scripts/script.js" defer></script>
+    <link href="styles/style.css" rel="stylesheet">
     <title>Rock Paper Scissors</title>
     
 </head>
 <body>
+    <div class="header">
+        <nav class="navigation">
+            <div class="header-logo"><h1>ROCK, PAPER, SCISSORS</h1></div>
+        </nav>
+        
+    </div>
+    
+    
+    <section class="main">
+        <div class="results">
+            <h1 id="result">CHOOSE YOUR WEAPON </h1>
+            <p class="rules">First to score 5 wins</p>
+        </div>
+     
+        <div class="players">
+            <div class="player-selection">
+                <p id="player-score">PLAYER: 0</p>
+                <img id="weapon-player" src="images/question.svg" alt="">
+            </div>
+            <div class="pc-selection">
+                <p id="pc-score">PC: 0</p>
+                <img id="weapon-pc" src="images/question.svg" alt="">
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="selection">
+            <button class="button" id="rock"  type="button" value="ROCK"></button>
+            <button class="button" id="paper" type="button" value="PAPER"> </button>
+            <button class="button" id="scissors" type="button" value="SCISSORS"></button>
+        </div>
+    </section>
 
-
- 
-<h1>ROCK, PAPER, SCISSORS</h1>    
+    <footer class="footer">
+        <section>
+            <p>Copyright &copy Denver Galvan</p>
+        </section>
+    </footer>
     
 </body>
 </html>

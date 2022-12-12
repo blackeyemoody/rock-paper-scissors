@@ -1,0 +1,118 @@
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+footer,
+.header {
+    background-color: #1F2937;
+}
+
+.header {
+    padding: 25px;
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
+    color: #F9FAF8;
+    font-size: 24px;
+}
+
+.header-logo {
+    font-size: 24px;
+    color: #F9FAF8;
+}
+ footer,
+.secondary-text,
+.players {
+    color: #F9FAF8;
+    font-size: 18px;
+    
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+footer {
+    margin-top: 50px;
+    height: 100px;
+    width: 100%;
+  
+    bottom: 0;
+}
+
+.selection {
+    display: flex;
+    justify-content: center;
+}
+
+
+.results {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.players {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 50px;
+  
+ 
+  
+}
+.players img {
+    height: auto;
+    width: 200px;
+}
+
+
+
+button {
+    height: 300px;
+    width: 500px;
+}
+
+#rock {
+    background: url(/images/rock.svg) no-repeat  center;
+    height: 300px;
+    
+    
+}
+
+#paper {
+    background: url(/images/paper.svg) no-repeat  center;
+    -height: 300px;
+}
+#scissors {
+    background: url(/images/scissors.svg) no-repeat  center;
+    height: 300px;
+}
+
+#rock:hover {
+    background-color: #1F2937;
+}
+#paper:hover {
+    background-color: #1F2937;
+}
+
+#scissors:hover {
+    background-color: #1F2937;
+}
+
+.player-selection,
+.pc-selection {
+    border: 1px solid #F9FAF8;
+    background-color: #1F2937;
+}
+
+.main {
+    margin-bottom: 20px
+}

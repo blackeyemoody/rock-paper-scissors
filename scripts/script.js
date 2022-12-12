@@ -1,63 +1,118 @@
+const buttons = document.querySelectorAll('button');
+const weaponPc = document.querySelector('#weapon-pc');
+const weaponPlayer = document.querySelector('#weapon-player');
+const resultText = document.querySelector('#result');
+const scorePlayer = document.querySelector('#player-score');
+const scorePc = document.querySelector('#pc-score');
+let scoresPc =0;
+let scoresPlayer = 0;
+
+
+buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        singleRound(button.value, getComputerChoice())
+        
+    });
+});
+
+
 function getComputerChoice() {
     choice = ['ROCK','PAPER','SCISSORS'];
     return choice[Math.floor(Math.random()*3)];
 }
 
 function singleRound(player,pc){
-    let result;
+    setWeaponImage(player,pc)
     if (player === pc) {
-        result = 'DRAW'
+        result = 'DRAW';
+        resultText.textContent =('DRAW');
+        
     }
     else if (player === 'ROCK' && pc === 'SCISSORS') {
         result = 'PLAYER WIN'
+        resultText.textContent =('YOU WIN')
     }
     else if (player === 'PAPER' && pc === 'ROCK') {
         result = 'PLAYER WIN'
+        resultText.textContent =('YOU WIN')
+        
     }
     else if (player === 'SCISSORS' && pc === 'PAPER') {
         result = 'PLAYER WIN'
+        resultText.textContent =('YOU WIN')
+        
     }
     else {
         result = 'PC WIN'
+        resultText.textContent =('YOU LOSE')
     }
-    return result
-}
-
-function game(rounds) {
-    totalGamesPlayed = 0;
-    playerTotal = 0;
-    pcTotal = 0;
-    draw = 0;
-    for (let i = 1; i <=rounds; i++) {
-        let playerSelection = prompt('ROCK PAPER SCISSORS').toUpperCase();
-        let computerSelection = getComputerChoice();
-        console.log(`game ${i}: player: ${playerSelection} pc: ${computerSelection} winner is : ${singleRound(playerSelection,computerSelection)}`)
-        if (singleRound(playerSelection,computerSelection) === 'PLAYER WIN') {
-            playerTotal +=1;
-        } else if (singleRound(playerSelection,computerSelection) === 'PC WIN') {
-            pcTotal +=1;
-        } else {
-            playerTotal +=1;
-            pcTotal +=1;
-            draw +=1;
-        }
-        totalGamesPlayed +=1;
-    }
-    if (playerTotal > pcTotal) {
-        return ` GAMES PLAYED: ${totalGamesPlayed} \n PLAYER SCORE: ${playerTotal} \n PC SCORE: ${pcTotal} \n DRAW:${draw} \n WINNER: PLAYER`
-    } else if (playerTotal < pcTotal) {
-        return ` GAMES PLAYED: ${totalGamesPlayed} \n PLAYER SCORE: ${playerTotal} \n PC SCORE: ${pcTotal} \n DRAW:${draw} \n WINNER: PC`
-    } else {
-        return ` GAMES PLAYED: ${totalGamesPlayed} \n PLAYER SCORE: ${playerTotal} \n PC SCORE: ${pcTotal} \n DRAW:${draw} \n WINNER: DRAW`
-    }
-    
+    showScore(result)
     
 }
-let askRound = prompt('how many rounds do you want?')
-
-console.log(game(askRound));
 
 
+function showScore(result) {
+    switch(result) {
+            
+        case 'DRAW':
+        scoresPc +=1;
+        scoresPlayer +=1;
+        break;
+        
+        case 'PLAYER WIN':
+        scoresPlayer +=1;
+        break;
+        
+        case 'PC WIN':
+        scoresPc +=1;
+        break;
+
+    }
+    if (scoresPc === 5) {
+        alert('YOU LOSE');
+        scoresPc =0;
+        scoresPlayer =0;
+    }
+    else if (scoresPlayer === 5) {
+        alert('YOU WIN');
+        scoresPc =0;
+        scoresPlayer =0;
+    }
+    else if (scoresPc === 5 && scoresPlayer === 5) {
+        alert('DRAW');
+        scoresPc =0;
+        scoresPlayer =0;
+    }
+    
+    scorePlayer.textContent = `Player: ${scoresPlayer}`;
+    scorePc.textContent = `PC: ${scoresPc}`;
+
+}
 
 
 
+function setWeaponImage(imagePlayer,imagePc) {
+    switch(imagePlayer) {
+        case 'ROCK':
+        weaponPlayer.src = "images/rock.svg";
+        break;
+        case 'PAPER':
+        weaponPlayer.src = "images/paper.svg";
+        break;
+        case 'SCISSORS':
+        weaponPlayer.src = "images/scissors.svg";
+        break;
+    }
+    switch(imagePc) {
+        case 'ROCK':
+        weaponPc.src = "images/rock.svg";
+        break;
+        case 'PAPER':
+        weaponPc.src = "images/paper.svg";
+        break;
+        case 'SCISSORS':
+        weaponPc.src = "images/scissors.svg";
+        break;
+    } 
+}
